@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:login/pages/home_page.dart';
+import 'package:login/pages/login_page.dart';
+import 'package:login/utils/routes.dart';
 
-void main(){
-  runApp(MyApp());
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,13 +13,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("First app"),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        appBarTheme: AppBarTheme(
+          elevation: 0.0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          color: Colors.white,
         ),
-        body:   ,
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+
+      debugShowCheckedModeBanner: false,
+      initialRoute: MyRoutes.homeRoutes,
+      routes: {
+        MyRoutes.mainRoutes : (context) => LoginPage(),
+        MyRoutes.loginRoutes : (context) => LoginPage(),
+        MyRoutes.homeRoutes : (context) => HomePage(),
+      },
     );
   }
 }
