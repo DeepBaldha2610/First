@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:login/models/catalog.dart';
 import 'package:login/widgets/drawer.dart';
+import '../widgets/item_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final dummyList = List.generate(50, (index) => CatalogModel.item[0]);
     return Scaffold(
       appBar: AppBar(
         title: const Padding(
@@ -19,12 +21,13 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      // body: ListView.builder(
-      //   itemCount: CatalogModel.item.length,
-      //   itemBuilder: (context, index){
-      //     return CatalogWidget();
-      //   }
-      // ),
+      body: ListView.builder(
+          itemCount: dummyList.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: dummyList[index],
+            );
+          }),
       drawer: MyDrawer(),
     );
   }
