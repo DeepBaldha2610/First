@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/pages/home_page.dart';
 import 'package:login/pages/login_page.dart';
 import 'package:login/utils/routes.dart';
+import 'package:login/widgets/themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,19 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        appBarTheme: AppBarTheme(
-          // elevation: 0.0,
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-          color: Colors.white,
-        ),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      theme: MyTheam.lightTheme(context),
+      darkTheme: MyTheam.darkTheme(context),
 
       debugShowCheckedModeBanner: false,
       initialRoute: MyRoutes.homeRoutes,

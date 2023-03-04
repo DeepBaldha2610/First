@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/models/catalog.dart';
 import 'package:login/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,23 +8,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Deep Baldha"),
-        ),
-        body: Column(
-          children: const [
-            Center(
-              child: Text(
-                "Deep",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
+      appBar: AppBar(
+        title: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 80),
+          child: Text(
+            "Deep Baldha",
+            style: TextStyle(
+              fontSize: 18,
             ),
-          ],
+          ),
         ),
-        drawer: MyDrawer(),
-      );
+      ),
+      // body: ListView.builder(
+      //   itemCount: CatalogModel.item.length,
+      //   itemBuilder: (context, index){
+      //     return CatalogWidget();
+      //   }
+      // ),
+      drawer: MyDrawer(),
+    );
   }
 }
