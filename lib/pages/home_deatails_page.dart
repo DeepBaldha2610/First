@@ -29,8 +29,8 @@ class HomeDeatailPage extends StatelessWidget {
               backgroundColor:
                   MaterialStateProperty.all(MyTheam.darkBluishColor),
             ),
-            child: "Buy".text.xl.make(),
-          ).wh(100, 50).cornerRadius(20),
+            child: "Add to cart".text.xl.make(),
+          ).wh(125, 50).cornerRadius(20),
         ],
       ).p32().color(MyTheam.creamcolor),
       body: SafeArea(
@@ -57,6 +57,12 @@ class HomeDeatailPage extends StatelessWidget {
                       catalog.desc.text.xl
                           .textStyle(context.captionStyle)
                           .make(),
+                      "Magna incididunt magna et aute minim adipisicing in ea. Nostrud sit ad in aute sunt voluptate culpa pariatur sit exercitation. Non est excepteur sit pariatur proident commodo Lorem laboris anim est. Voluptate aliqua aliqua aute elit."
+                          .text
+                          .lg
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p24(),
                     ],
                   ).py64(),
                 ),
