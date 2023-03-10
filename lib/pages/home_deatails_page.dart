@@ -17,22 +17,28 @@ class HomeDeatailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      bottomNavigationBar: ButtonBar(
-        alignment: MainAxisAlignment.spaceBetween,
-        buttonPadding: EdgeInsets.zero,
-        children: [
-          "\$${catalog.price}".text.xl4.red800.bold.make(),
-          ElevatedButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(MyTheam.darkBluishColor),
-            ),
-            child: "Add to cart".text.xl.make(),
-          ).wh(125, 50).cornerRadius(20),
-        ],
-      ).p32().color(MyTheam.creamcolor),
+      backgroundColor: context.canvasColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      bottomNavigationBar: Container(
+        color: context.cardColor,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          buttonPadding: EdgeInsets.zero,
+          children: [
+            "\$${catalog.price}".text.xl4.red800.bold.make(),
+            ElevatedButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(MyTheam.darkBluishColor),
+              ),
+              child: "Add to cart".text.xl.make(),
+            ).wh(125, 50).cornerRadius(20),
+          ],
+        ).p32(),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -42,11 +48,11 @@ class HomeDeatailPage extends StatelessWidget {
             ).h32(context),
             Expanded(
               child: VxArc(
-                height: 10,
+                height: 20,
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: MyTheam.creamcolor,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
@@ -57,12 +63,15 @@ class HomeDeatailPage extends StatelessWidget {
                       catalog.desc.text.xl
                           .textStyle(context.captionStyle)
                           .make(),
-                      "Magna incididunt magna et aute minim adipisicing in ea. Nostrud sit ad in aute sunt voluptate culpa pariatur sit exercitation. Non est excepteur sit pariatur proident commodo Lorem laboris anim est. Voluptate aliqua aliqua aute elit."
-                          .text
-                          .lg
-                          .textStyle(context.captionStyle)
-                          .make()
-                          .p24(),
+                      Expanded(
+                        child:
+                            "Magna incididunt magna et aute minim adipisicing in ea. Nostrud sit ad in aute sunt voluptate culpa pariatur sit exercitation. Non est excepteur sit pariatur proident commodo Lorem laboris anim est. Voluptate aliqua aliqua aute elit."
+                                .text
+                                .lg
+                                .textStyle(context.captionStyle)
+                                .make()
+                                .p24(),
+                      ),
                     ],
                   ).py64(),
                 ),
